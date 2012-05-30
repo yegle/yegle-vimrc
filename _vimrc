@@ -10,7 +10,7 @@ set autoindent
 set nocompatible
 filetype plugin indent on
 au BufRead,BufNewFile *.tpl set filetype=smarty 
-"set fileencodings=utf8,GB18030,Big5,latin1
+set fileencodings=ucs-bom,gbk,utf8,GB18030,Big5,latin1
 
 syntax on
 set ts=4
