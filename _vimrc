@@ -1,5 +1,5 @@
 "
-" if you are not using vim-reset, please set VIMCONFIG_DIR here:
+" if you are not using vim-reset, please set VIMCONFIG_DIR here and link `~/.vimrc` to `_vimrc` file
 " example:
 "
 " let VIMCONFIG_DIR=$HOME/.vim
