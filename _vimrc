@@ -33,4 +33,9 @@ so ${VIMCONFIG_DIR}/map.vim
 function LoadTemplate()
      0r $VIMCONFIG_DIR/skel/tmpl.%:e
      exec "normal G"
+     let old_undolevels = &undolevels
+     set undolevels=-1
+     exe "normal a \<BS>\<Esc>"
+     let &undolevels = old_undolevels                                                                                     
+     unlet old_undolevels
 endfunction
