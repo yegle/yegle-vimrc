@@ -22,7 +22,9 @@ set shiftwidth=4
 set backspace=2
 au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|else|exe "norm $"|endif|endif
 set viminfo='1000,f1,<500
-set cursorline
+if version >= 700
+    set cursorline
+endif
 autocmd! BufNewFile * silent! call LoadTemplate()
 set incsearch
 set hlsearch
