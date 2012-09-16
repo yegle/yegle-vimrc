@@ -11,7 +11,6 @@ endif
 set autoindent
 set nocompatible
 filetype plugin indent on
-au BufRead,BufNewFile *.tpl set filetype=smarty 
 au BufRead,BufNewFile *.md set filetype=markdown
 set fileencodings=ucs-bom,utf8,gbk,GB18030,Big5,latin1
 
