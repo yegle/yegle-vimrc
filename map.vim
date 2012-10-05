@@ -7,4 +7,5 @@ imap () ()<ESC>i
 imap {} {}<ESC>i
 imap [] []<ESC>i
 imap <> <><ESC>i
+imap $$ $$<ESC>i
 imap %% %%<ESC>i<SPACE><SPACE><ESC>i
