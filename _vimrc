@@ -30,10 +30,14 @@ set incsearch
 set hlsearch
 
 " check spelling
-set spell 
+set spell
 
 " enabling some warning for python
 let python_highlight_all=1
+
+" highlight whitespace at EOL
+highlight WhitespaceEOL ctermbg=red guibg=red
+match WhitespaceEOL /\s\+$/
 
 "hi CursorLine   cterm=NONE ctermbg=lightblue
 
@@ -45,6 +49,6 @@ function LoadTemplate()
     let old_undolevels = &undolevels
     set undolevels=-1
     exe "normal a \<BS>\<Esc>"
-    let &undolevels = old_undolevels                                                                                     
+    let &undolevels = old_undolevels
     unlet old_undolevels
 endfunction
