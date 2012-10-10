@@ -28,16 +28,23 @@ endif
 autocmd! BufNewFile * silent! call LoadTemplate()
 set incsearch
 set hlsearch
+
+" check spelling
+set spell 
+
+" enabling some warning for python
+let python_highlight_all=1
+
 "hi CursorLine   cterm=NONE ctermbg=lightblue
 
 so ${VIMCONFIG_DIR}/map.vim
 
 function LoadTemplate()
-     0r $VIMCONFIG_DIR/skel/tmpl.%:e
-     exec "normal G"
-     let old_undolevels = &undolevels
-     set undolevels=-1
-     exe "normal a \<BS>\<Esc>"
-     let &undolevels = old_undolevels                                                                                     
-     unlet old_undolevels
+    0r $VIMCONFIG_DIR/skel/tmpl.%:e
+    exec "normal G"
+    let old_undolevels = &undolevels
+    set undolevels=-1
+    exe "normal a \<BS>\<Esc>"
+    let &undolevels = old_undolevels                                                                                     
+    unlet old_undolevels
 endfunction
