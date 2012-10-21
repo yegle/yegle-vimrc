@@ -29,9 +29,6 @@ autocmd! BufNewFile * silent! call LoadTemplate()
 set incsearch
 set hlsearch
 
-" check spelling
-set spell
-
 " enable modeline
 set modeline
 
