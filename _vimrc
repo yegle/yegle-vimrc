@@ -8,10 +8,13 @@ if vimconfig_dir == ""
     let $VIMCONFIG_DIR=$HOME."/.vim"
 endif
 
+call pathogen#infect()
+
 set autoindent
 set nocompatible
 filetype plugin indent on
 au BufRead,BufNewFile *.md set filetype=markdown
+au BufRead,BufNewFile SConstruct set filetype=python
 set fileencodings=ucs-bom,utf8,gbk,GB18030,Big5,latin1
 
 syntax on
@@ -26,14 +29,9 @@ if version >= 700
     set cursorline
 endif
 autocmd! BufNewFile * silent! call LoadTemplate()
+autocmd BufRead,BufNewFile,FileReadPost * silent! call LoadLanguageSpecificSettings()
 set incsearch
 set hlsearch
-
-" check spelling
-set spell
-
-" enabling some warning for python
-let python_highlight_all=1
 
 " highlight whitespace at EOL
 highlight WhitespaceEOL ctermbg=red guibg=red
@@ -51,4 +49,8 @@ function LoadTemplate()
     exe "normal a \<BS>\<Esc>"
     let &undolevels = old_undolevels
     unlet old_undolevels
+endfunction
+
+function LoadLanguageSpecificSettings()
+    source $VIMCONFIG_DIR/lang/%:e.vim
 endfunction
