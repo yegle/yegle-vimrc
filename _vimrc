@@ -27,6 +27,7 @@ au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|
 set viminfo='1000,f1,<500
 if version >= 700
     set cursorline
+    set cursorcolumn
 endif
 autocmd! BufNewFile * silent! call LoadTemplate()
 autocmd BufRead,BufNewFile,FileReadPost * silent! call LoadLanguageSpecificSettings()
