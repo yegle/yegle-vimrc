@@ -71,8 +71,8 @@ function LoadTemplate()
 endfunction
 
 function LoadLanguageSpecificSettings()
-    let file = g:VIMCONFIG_DIR . "/lang/" . expand("%:e") . ".vim"
-    if filereadable(file)
-        exec ":source " . file
+    let lang = g:VIMCONFIG_DIR . "/lang/" . expand("%:e") . ".vim"
+    if filereadable(lang)
+        exec ":source " . lang
     endif
 endfunction
