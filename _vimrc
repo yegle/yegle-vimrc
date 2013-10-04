@@ -36,7 +36,7 @@ set hlsearch
 set modeline
 
 " Add folding
-so ${VIMCONFIG_DIR}/fold.vim
+exec ":source " . VIMCONFIG_DIR . "/fold.vim"
 
 " Append modeline after last line in buffer.
 " Use substitute() instead of printf() to handle '%%s' modeline in LaTeX
