@@ -2,10 +2,10 @@
 " if you are not using vim-reset, just link `~/.vimrc` to `_vimrc` file
 "
 
-let vimconfig_dir = $VIMCONFIG_DIR
+let VIMCONFIG_DIR = $VIMCONFIG_DIR
 
-if vimconfig_dir == ""
-    let $VIMCONFIG_DIR=$HOME."/.vim"
+if VIMCONFIG_DIR == ""
+    let VIMCONFIG_DIR = $HOME."/.vim"
 endif
 
 call pathogen#infect()
@@ -29,13 +29,14 @@ if version >= 700
     set cursorline
     set cursorcolumn
 endif
-autocmd! BufNewFile * silent! call LoadTemplate()
-autocmd BufRead,BufNewFile,FileReadPost * silent! call LoadLanguageSpecificSettings()
 set incsearch
 set hlsearch
 
 " enable modeline
 set modeline
+
+" Add folding
+exec ":source " . VIMCONFIG_DIR . "/fold.vim"
 
 " Append modeline after last line in buffer.
 " Use substitute() instead of printf() to handle '%%s' modeline in LaTeX
@@ -54,18 +55,27 @@ match WhitespaceEOL /\s\+$/
 
 "hi CursorLine   cterm=NONE ctermbg=lightblue
 
-so ${VIMCONFIG_DIR}/map.vim
+exec ":source " . VIMCONFIG_DIR . "/map.vim"
+
+autocmd! BufNewFile * call LoadTemplate()
+autocmd BufRead,BufNewFile,FileReadPost * silent! call LoadLanguageSpecificSettings()
 
 function LoadTemplate()
-    0r $VIMCONFIG_DIR/skel/tmpl.%:e
-    exec "normal G"
-    let old_undolevels = &undolevels
-    set undolevels=-1
-    exe "normal a \<BS>\<Esc>"
-    let &undolevels = old_undolevels
-    unlet old_undolevels
+    let skel = g:VIMCONFIG_DIR . "/skel/tmpl." . expand("%:e")
+    if filereadable(skel)
+        exec ":0r " . skel
+        exec "normal G"
+        let old_undolevels = &undolevels
+        set undolevels=-1
+        exe "normal a \<BS>\<Esc>"
+        let &undolevels = old_undolevels
+        unlet old_undolevels
+    endif
 endfunction
 
 function LoadLanguageSpecificSettings()
-    source $VIMCONFIG_DIR/lang/%:e.vim
+    let lang = g:VIMCONFIG_DIR . "/lang/" . expand("%:e") . ".vim"
+    if filereadable(lang)
+        exec ":source " . lang
+    endif
 endfunction
