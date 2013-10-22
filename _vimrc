@@ -53,6 +53,13 @@ nnoremap <silent> <Leader>ml :call AppendModeline()<CR>
 highlight WhitespaceEOL ctermbg=red guibg=red
 match WhitespaceEOL /\s\+$/
 
+" highlight characters longer than 72 characters
+highlight OverLength ctermbg=red ctermfg=white guibg=red
+match OverLength /\%73v.\+/
+
+
+let g:syntastic_cpp_compiler_options = ' -std=c++11'
+
 "hi CursorLine   cterm=NONE ctermbg=lightblue
 
 exec ":source " . VIMCONFIG_DIR . "/map.vim"
