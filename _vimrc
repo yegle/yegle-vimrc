@@ -79,3 +79,8 @@ function LoadLanguageSpecificSettings()
         exec ":source " . lang
     endif
 endfunction
+
+let g:syntastic_cpp_compiler = 'clang++'
+let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++'
+
+autocmd BufReadPost,FileReadPost,BufNewFile * call system("tmux rename-window ".expand("%"))
