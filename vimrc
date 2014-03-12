@@ -91,3 +91,4 @@ let g:syntastic_cpp_compiler = 'clang++'
 let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++'
 
 autocmd BufReadPost,FileReadPost,BufNewFile * call system("tmux rename-window ".expand("%"))
+au BufRead,BufNewFile /etc/nginx/* if &ft == '' | setfiletype nginx | endif 
