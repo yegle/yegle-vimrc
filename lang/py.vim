@@ -12,4 +12,4 @@ for p in sys.path:
         vim.command(r"set path+=%s" % (p.replace(" ", r"\ ")))
 EOF
 
-set textwidth=72
+set textwidth=79
