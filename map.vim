@@ -17,3 +17,17 @@ map <c-j> <c-w>j
 map <c-k> <c-w>k
 map <c-l> <c-w>l
 map <c-h> <c-w>h
+
+function LocationListNavOrJustOne(cmd)
+    redir => output
+    silent! exec a:cmd
+    redir END
+    if match(output, "E553: No more items") >= 0
+        exec ':ll'
+    else
+        echom output
+    endif
+endfunction
+
+nmap ,, :call LocationListNavOrJustOne(":lprev")<CR>
+nmap .. :call LocationListNavOrJustOne(":lnext")<CR>
