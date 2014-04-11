@@ -19,3 +19,6 @@
 [submodule "bundle/nginx-vim-syntax"]
 	path = bundle/nginx-vim-syntax
 	url = https://github.com/evanmiller/nginx-vim-syntax.git
+[submodule "bundle/vim-gf-python"]
+	path = bundle/vim-gf-python
+	url = https://github.com/mkomitee/vim-gf-python.git
