@@ -18,16 +18,21 @@ map <c-k> <c-w>k
 map <c-l> <c-w>l
 map <c-h> <c-w>h
 
-function LocationListNavOrJustOne(cmd)
-    redir => output
-    silent! exec a:cmd
-    redir END
-    if match(output, "E553: No more items") >= 0
-        exec ':ll'
-    else
-        echom output
-    endif
+function LocationPrevious()
+  try
+    lprev
+  catch /^Vim\%((\a\+)\)\=:E553/
+    llast
+  endtry
 endfunction
 
-nmap ,, :call LocationListNavOrJustOne(":lprev")<CR>
-nmap .. :call LocationListNavOrJustOne(":lnext")<CR>
+function LocationNext()
+  try
+    lnext
+  catch /^Vim\%((\a\+)\)\=:E553/
+    lfirst
+  endtry
+endfunction
+
+nmap ,, :call LocationPrevious()<CR>
+nmap .. :call LocationNext()<CR>
