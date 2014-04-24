@@ -22,3 +22,6 @@
 [submodule "bundle/vim-unimpared.git"]
 	path = bundle/vim-unimpared.git
 	url = https://github.com/tpope/vim-unimpaired.git
+[submodule "bundle/vim-scala"]
+	path = bundle/vim-scala
+	url = https://github.com/derekwyatt/vim-scala.git
