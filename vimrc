@@ -18,6 +18,8 @@ au BufRead,BufNewFile SConstruct set filetype=python
 set fileencodings=ucs-bom,utf8,gbk,GB18030,Big5,latin1
 
 syntax on
+set background=dark
+colorscheme solarized
 set ts=4
 set smarttab
 set expandtab
