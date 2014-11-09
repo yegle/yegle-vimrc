@@ -20,6 +20,8 @@ set fileencodings=ucs-bom,utf8,gbk,GB18030,Big5,latin1
 syntax on
 set background=dark
 colorscheme solarized
+set colorcolumn=80
+highlight ColorColumn ctermbg=Red
 set ts=4
 set smarttab
 set expandtab
@@ -54,11 +56,6 @@ nnoremap <silent> <Leader>ml :call AppendModeline()<CR>
 " highlight whitespace at EOL
 highlight WhitespaceEOL ctermbg=red guibg=red
 match WhitespaceEOL /\s\+$/
-
-" highlight characters longer than 79 characters
-highlight OverLength ctermbg=red ctermfg=white guibg=red
-match OverLength /\%80v.\+/
-
 
 let g:syntastic_cpp_compiler_options = ' -std=c++11'
 
