@@ -37,3 +37,5 @@ endfunction
 
 nmap ,, :call LocationPrevious()<CR>
 nmap .. :call LocationNext()<CR>
+
+map <C-n> :NERDTreeToggle<CR>
