@@ -92,3 +92,5 @@ let g:syntastic_always_populate_loc_list = 1
 
 autocmd BufReadPost,FileReadPost,BufNewFile * call system("tmux rename-window ".expand("%"))
 au BufRead,BufNewFile /etc/nginx/* if &ft == '' | setfiletype nginx | endif 
+let g:gofmt_command = "goimports"
+autocmd FileType go autocmd BufWritePre <buffer> Fmt
