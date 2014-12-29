@@ -31,3 +31,6 @@
 [submodule "bundle/nerdtree"]
 	path = bundle/nerdtree
 	url = https://github.com/scrooloose/nerdtree.git
+[submodule "bundle/vim-go.git"]
+	path = bundle/vim-go.git
+	url = https://github.com/fatih/vim-go.git
