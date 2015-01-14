@@ -16,7 +16,6 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 Plugin 'gmarik/Vundle.vim'
-Plugin 'scrooloose/syntastic'
 Plugin 'lukaszb/vim-web-indent'
 Plugin 'godlygeek/tabular'
 Plugin 'tpope/vim-markdown'
@@ -33,13 +32,32 @@ Plugin 'cespare/vim-toml'
 Plugin 'raymond-w-ko/vim-lua-indent'
 Plugin 'exu/pgsql.vim'
 Plugin 'nathangrigg/vim-beancount'
-Plugin 'Valloric/YouCompleteMe'
 Plugin 'leafgarland/typescript-vim'
-Plugin 'google/vim-maktaba'
-Plugin 'google/vim-codefmt'
+Plugin 'scrooloose/syntastic'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
+
+let GOOGLE_CONFIG = "/usr/share/vim/google/google.vim"
+
+if filereadable(GOOGLE_CONFIG)
+    exec ":source ".GOOGLE_CONFIG
+    Glug piper
+    Glug g4
+    Glug youcompleteme-google
+    Glug codefmt gofmt_executable="goimports"
+    Glug codefmt-google enable_gclfmt
+
+    Glug syntastic-google checkers=`{'python': 'gpylint'}`
+    " Configure to taste. See ":help syntastic".
+    "autocmd FileType python AutoFormatBuffer pyformat
+    "autocmd FileType bzl AutoFormatBuffer buildifier
+
+    "autocmd FileType borg AutoFormatBuffer gclfmt
+    "autocmd FileType gcl AutoFormatBuffer gclfmt
+    autocmd FileType go AutoFormatBuffer gofmt
+endif
+
 
 set autoindent
 au BufRead,BufNewFile *.md set filetype=markdown
@@ -56,7 +74,7 @@ set expandtab
 set shiftwidth=4
 set backspace=2
 au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|else|exe "norm $"|endif|endif
-set viminfo='1000,f1,<500
+set viminfo='1000,f1,<1000
 if version >= 700
     set cursorline
     set cursorcolumn
@@ -127,7 +145,8 @@ let g:ycm_auto_trigger = 1
 
 autocmd BufReadPost,FileReadPost,BufNewFile * call system("tmux rename-window ".expand("%"))
 au BufRead,BufNewFile /etc/nginx/* if &ft == '' | setfiletype nginx | endif
-let g:go_fmt_command = "goimports"
 
 " Close Omni-Cmopletion tip window when a selection is made
 autocmd CompleteDone * pclose
+
+autocmd VimLeavePre * call system("tmux rename-window 'zsh'")
