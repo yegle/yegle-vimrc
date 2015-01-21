@@ -20,19 +20,35 @@ map <c-l> <c-w>l
 map <c-h> <c-w>h
 
 function LocationPrevious()
-  try
-    lprev
-  catch /^Vim\%((\a\+)\)\=:E553/
-    llast
-  endtry
+    if len(getqflist())
+        try
+            cprevious
+        catch /^Vim\%((\a\+)\)\=:E553/
+            clast
+        endtry
+    else
+        try
+            lprev
+        catch /^Vim\%((\a\+)\)\=:E553/
+            llast
+        endtry
+    endif
 endfunction
 
 function LocationNext()
-  try
-    lnext
-  catch /^Vim\%((\a\+)\)\=:E553/
-    lfirst
-  endtry
+    if len(getqflist())
+        try
+            cnext
+        catch /^Vim\%((\a\+)\)\=:E553/
+            cfirst
+        endtry
+    else
+        try
+            lnext
+        catch /^Vim\%((\a\+)\)\=:E553/
+            lfirst
+        endtry
+    endif
 endfunction
 
 nmap ,, :call LocationPrevious()<CR>
