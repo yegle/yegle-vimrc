@@ -19,7 +19,6 @@ set fileencodings=ucs-bom,utf8,gbk,GB18030,Big5,latin1
 
 syntax on
 set background=dark
-colorscheme solarized
 set colorcolumn=80
 highlight ColorColumn ctermbg=Red
 set ts=4
