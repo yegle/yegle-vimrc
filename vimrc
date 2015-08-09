@@ -12,13 +12,12 @@ set nocompatible              " be iMproved, required
 filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle
+set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 Plugin 'scrooloose/syntastic'
 Plugin 'lukaszb/vim-web-indent'
 Plugin 'godlygeek/tabular'
-Plugin 'vim-scripts/applescript.vim'
 Plugin 'tpope/vim-markdown'
 Plugin 'yegle/python_match'
 Plugin 'evanmiller/nginx-vim-syntax'
