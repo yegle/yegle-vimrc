@@ -8,11 +8,31 @@ if VIMCONFIG_DIR == ""
     let VIMCONFIG_DIR = $HOME."/.vim"
 endif
 
-call pathogen#infect()
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle
+call vundle#begin()
+
+Plugin 'scrooloose/syntastic'
+Plugin 'lukaszb/vim-web-indent'
+Plugin 'godlygeek/tabular'
+Plugin 'vim-scripts/applescript.vim'
+Plugin 'tpope/vim-markdown'
+Plugin 'yegle/python_match'
+Plugin 'evanmiller/nginx-vim-syntax'
+Plugin 'tpope/vim-unimpaired'
+Plugin 'derekwyatt/vim-scala'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'scrooloose/nerdtree'
+Plugin 'fatih/vim-go'
+Plugin 'luochen1990/rainbow'
+
+call vundle#end()            " required
+filetype plugin indent on    " required
 
 set autoindent
-set nocompatible
-filetype plugin indent on
 au BufRead,BufNewFile *.md set filetype=markdown
 au BufRead,BufNewFile SConstruct set filetype=python
 set fileencodings=ucs-bom,utf8,gbk,GB18030,Big5,latin1
