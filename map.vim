@@ -7,7 +7,6 @@ imap () ()<ESC>i
 imap {} {}<ESC>i
 imap [] []<ESC>i
 imap <> <><ESC>i
-imap :: ::<ESC>i
 imap $$ $$<ESC>i
 imap %% %%<ESC>i<SPACE><SPACE><ESC>i
 " fix spell errors by selecting first suggestion
