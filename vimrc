@@ -30,6 +30,7 @@ Plugin 'fatih/vim-go'
 Plugin 'luochen1990/rainbow'
 Plugin 'rust-lang/rust.vim'
 Plugin 'cespare/vim-toml'
+Plugin 'Valloric/YouCompleteMe'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
