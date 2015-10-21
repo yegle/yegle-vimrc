@@ -31,6 +31,7 @@ Plugin 'luochen1990/rainbow'
 Plugin 'rust-lang/rust.vim'
 Plugin 'cespare/vim-toml'
 Plugin 'Valloric/YouCompleteMe'
+Plugin 'raymond-w-ko/vim-lua-indent'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
