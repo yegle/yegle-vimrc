@@ -31,6 +31,7 @@ Plugin 'luochen1990/rainbow'
 Plugin 'rust-lang/rust.vim'
 Plugin 'cespare/vim-toml'
 Plugin 'raymond-w-ko/vim-lua-indent'
+Plugin 'exu/pgsql.vim'
 
 if !has("macunix")
     Plugin 'Valloric/YouCompleteMe'
