@@ -33,7 +33,7 @@ Plugin 'cespare/vim-toml'
 Plugin 'raymond-w-ko/vim-lua-indent'
 Plugin 'exu/pgsql.vim'
 
-if !has("macunix")
+if $HOME !~ "^/Users"
     Plugin 'Valloric/YouCompleteMe'
 endif
 
