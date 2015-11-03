@@ -30,8 +30,11 @@ Plugin 'fatih/vim-go'
 Plugin 'luochen1990/rainbow'
 Plugin 'rust-lang/rust.vim'
 Plugin 'cespare/vim-toml'
-Plugin 'Valloric/YouCompleteMe'
 Plugin 'raymond-w-ko/vim-lua-indent'
+
+if !has("macunix")
+    Plugin 'Valloric/YouCompleteMe'
+endif
 
 call vundle#end()            " required
 filetype plugin indent on    " required
