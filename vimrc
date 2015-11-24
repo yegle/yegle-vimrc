@@ -32,6 +32,7 @@ Plugin 'rust-lang/rust.vim'
 Plugin 'cespare/vim-toml'
 Plugin 'raymond-w-ko/vim-lua-indent'
 Plugin 'exu/pgsql.vim'
+Plugin 'nathangrigg/vim-beancount'
 
 if $HOME !~ "^/Users"
     Plugin 'Valloric/YouCompleteMe'
