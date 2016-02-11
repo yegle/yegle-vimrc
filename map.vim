@@ -52,7 +52,16 @@ function LocationNext()
     endif
 endfunction
 
+function FormatBeanCountFile()
+    let lineno=line('.')
+    execute ":%!bean-format %"
+    execute ":".lineno
+endfunction
+
 nmap ,, :call LocationPrevious()<CR>
 nmap .. :call LocationNext()<CR>
 
 map <C-n> :NERDTreeToggle<CR>
+vnoremap // y/<C-R>"<CR>
+nnoremap <C-p> :execute ":!bean-doctor context % " . line('.')<CR>
+nnoremap <C-l> :call FormatBeanCountFile()<CR>
