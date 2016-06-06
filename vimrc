@@ -34,6 +34,9 @@ Plugin 'raymond-w-ko/vim-lua-indent'
 Plugin 'exu/pgsql.vim'
 Plugin 'nathangrigg/vim-beancount'
 Plugin 'Valloric/YouCompleteMe'
+Plugin 'leafgarland/typescript-vim'
+Plugin 'google/vim-maktaba'
+Plugin 'google/vim-codefmt'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -114,6 +117,12 @@ endfunction
 let g:syntastic_cpp_compiler = 'clang++'
 let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++'
 let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_error_symbol = "✗"
+let g:syntastic_warning_symbol = "⚠"
+let g:syntastic_style_error_symbol = "!!"
+let g:syntastic_style_warning_symbol = "!!"
+let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
+let g:ycm_auto_trigger = 1
 
 autocmd BufReadPost,FileReadPost,BufNewFile * call system("tmux rename-window ".expand("%"))
 au BufRead,BufNewFile /etc/nginx/* if &ft == '' | setfiletype nginx | endif
