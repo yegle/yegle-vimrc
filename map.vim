@@ -54,6 +54,7 @@ endfunction
 
 function FormatBeanCountFile()
     let lineno=line('.')
+    execute ":silent w"
     execute ":%!bean-format %"
     execute ":".lineno
 endfunction
@@ -65,3 +66,4 @@ map <C-n> :NERDTreeToggle<CR>
 vnoremap // y/<C-R>"<CR>
 nnoremap <C-p> :execute ":!bean-doctor context % " . line('.')<CR>
 nnoremap <C-l> :call FormatBeanCountFile()<CR>
+inoremap <TAB><TAB> <C-x><C-o>
