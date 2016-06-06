@@ -122,6 +122,7 @@ let g:syntastic_warning_symbol = "⚠"
 let g:syntastic_style_error_symbol = "!!"
 let g:syntastic_style_warning_symbol = "!!"
 let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
+let g:syntastic_typescript_checkers = ['tsc', 'tslint']
 let g:ycm_auto_trigger = 1
 
 autocmd BufReadPost,FileReadPost,BufNewFile * call system("tmux rename-window ".expand("%"))
