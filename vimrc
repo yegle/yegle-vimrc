@@ -16,7 +16,7 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 Plugin 'gmarik/Vundle.vim'
-Plugin 'scrooloose/syntastic'
+Plugin 'w0rp/ale'
 Plugin 'lukaszb/vim-web-indent'
 Plugin 'godlygeek/tabular'
 Plugin 'tpope/vim-markdown'
@@ -85,8 +85,6 @@ nnoremap <silent> <Leader>ml :call AppendModeline()<CR>
 highlight WhitespaceEOL ctermbg=red guibg=red
 match WhitespaceEOL /\s\+$/
 
-let g:syntastic_cpp_compiler_options = ' -std=c++11'
-
 "hi CursorLine   cterm=NONE ctermbg=lightblue
 
 exec ":source " . VIMCONFIG_DIR . "/map.vim"
@@ -114,16 +112,9 @@ function LoadLanguageSpecificSettings()
     endif
 endfunction
 
-let g:syntastic_cpp_compiler = 'clang++'
-let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++'
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_error_symbol = "✗"
-let g:syntastic_warning_symbol = "⚠"
-let g:syntastic_style_error_symbol = "!!"
-let g:syntastic_style_warning_symbol = "!!"
-let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
-let g:syntastic_typescript_checkers = ['tsc', 'tslint']
 let g:ycm_auto_trigger = 1
+let g:ycm_python_binary_path = '/Users/ych/.py2kvenv/bin/python'
+let g:ycm_path_to_python_interpreter = '/Users/ych/.py2kvenv/bin/python'
 
 autocmd BufReadPost,FileReadPost,BufNewFile * call system("tmux rename-window ".expand("%"))
 au BufRead,BufNewFile /etc/nginx/* if &ft == '' | setfiletype nginx | endif
