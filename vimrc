@@ -36,6 +36,7 @@ Plugin 'Valloric/YouCompleteMe'
 Plugin 'leafgarland/typescript-vim'
 Plugin 'google/vim-maktaba'
 Plugin 'google/vim-codefmt'
+Plugin 'hashivim/vim-terraform'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
